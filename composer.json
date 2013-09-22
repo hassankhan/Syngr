@@ -1,0 +1,25 @@
+{
+    "name": "hassankhan/Syngr",
+    "description": "Fixing the gaps in PHP's OO approach",
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {
+            "Syngr": "library/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hassan Khan",
+            "email": "contact@hassankhan.me",
+            "homepage": "http://hassankhan.me",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev"
+}

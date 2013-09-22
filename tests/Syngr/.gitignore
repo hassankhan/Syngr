@@ -1,0 +1,29 @@
+# Numerous always-ignore extensions
+*.diff
+*.lock
+*.err
+*.orig
+*.log
+*.zip
+*~
+
+# Temp-stuff
+test.php
+phpunit.xml
+tests/clover.xml
+
+# OS or Editor folders
+.DS_Store
+._*
+Thumbs.db
+.cache
+.project
+.settings
+*.sublime-workspace
+
+# Folders to ignore
+tests/coverage
+vendor
+
+# Dist files
+docs
