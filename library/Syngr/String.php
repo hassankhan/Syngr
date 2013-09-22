@@ -8,31 +8,54 @@ namespace Syngr;
 
 class String extends Object {
 
+    /**
+     * @const string - Case options
+     */
     const CASE_INSENSITIVE = 'case_insensitive';
     const CASE_SENSITIVE   = 'case_sensitive';
+
+    /**
+     * @const string - Ordering options
+     */
     const ORDER_NATURAL    = 'order_natural';
     const ORDER_NORMAL     = 'order_normal';
+
+    /**
+     * @const string - String position options
+     */
     const STRING_LEFT      = 'left';
     const STRING_RIGHT     = 'right';
     const STRING_BOTH      = 'both';
 
     /**
      * Constructor function for string object
-     * @param string $string - textual data represented by string
+     * @param string $string - Textual data as represented by string
      */
     public function __construct($string = '')
     {
         parent::__construct(
             array(
-                'content' => $string,
-                'length'  => strlen($string)
+                'content' => $string
             )
         );
     }
 
+    /**
+     * Overrides __toString()
+     * @return string - String representation of data
+     */
     public function __toString()
     {
-        return $this->fields['content'];
+        return $this->getContent();
+    }
+
+    /**
+     * Gets length of string
+     * @return int - The length of the string
+     */
+    public function length()
+    {
+        return strlen($this->getContent());
     }
 
     // Currently replaces current content with new data
@@ -100,16 +123,27 @@ class String extends Object {
         }
     }
 
+    /**
+     * Returns a hash of the current string in the specified algorithm
+     * @param  string $algorithm - By default, is set to 'MD5'.
+     * @return string            - The result of the hashing function
+     */
     public function hash($algorithm = 'MD5')
     {
         return hash($algorithm, $this->getContent());
     }
 
+    /**
+     * Returns portion of the string
+     * @param  int $start  - Starting index of substring
+     * @param  int $length - Length of substring
+     * @return String      - Returns current instance for method chaining
+     */
     public function substring($start, $length = null)
     {
-        $length = $length === null ? $this->fields['length'] : $length;
         $string = $this->getContent();
-        $this->setContent(substr($string, $start));
+        $length = $length === null ? strlen($string) : $length;
+        $this->setContent(substr($string, $start, $length));
         return $this;
     }
 
@@ -143,12 +177,20 @@ class String extends Object {
         return $this;
     }
 
+    /**
+     * Switches all characters in string into uppercase
+     * @return String - Returns current instance for method chaining
+     */
     public function uppercase()
     {
         $this->setContent(strtoupper($this->getContent()));
         return $this;
     }
 
+    /**
+     * Switches all characters in string into lowercase
+     * @return String - Returns current instance for method chaining
+     */
     public function lowercase()
     {
         $this->setContent(strtolower($this->getContent()));
@@ -185,12 +227,25 @@ class String extends Object {
         return $this->getContent();
     }
 
+    /**
+     * Reverses the order of characters in a string
+     * @return String - Returns current instance for method chaining
+     */
     public function reverse()
     {
         $this->setContent(strrev($this->getContent()));
         return $this;
     }
 
+    /**
+     * Finds and replaces text in string
+     * @param  string  $search  - The string to look for
+     * @param  string  $replace - The string to replace with
+     * @param  integer $count   - (Optional) Limit the number of replacements, unlimited by default
+     * @param  array   $flags   - Optional flags
+     * @return String           - Returns current instance for method chaining
+     */
+    // Need to add regex support
     public function replace($search, $replace, $count = 0, $flags = array())
     {
         $text = $this->getContent();

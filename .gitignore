@@ -26,3 +26,5 @@ vendor
 
 # Dist files
 docs
+project-phpunit-skelgen.php
+test.php

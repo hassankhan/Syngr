@@ -30,16 +30,17 @@ class StringTest extends \PHPUnit_Framework_TestCase
 
     /**
      */
-    public function testGetInitialLength()
-    {
-        $this->assertEquals(6, $this->object->getLength());
-    }
-
-    /**
-     */
     public function testGetInitialContent()
     {
         $this->assertEquals('foobar', $this->object);
+    }
+
+    /**
+     * @covers Syngr\String::length()
+     */
+    public function testGetInitialLength()
+    {
+        $this->assertEquals(6, $this->object->length());
     }
 
     /**
