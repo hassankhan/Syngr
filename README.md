@@ -1,10 +1,10 @@
 # Syngr [![Build Status](https://travis-ci.org/hassankhan/Syngr.png?branch=master)](https://travis-ci.org/hassankhan/Syngr) [![Coverage Status](https://coveralls.io/repos/hassankhan/Syngr/badge.png)](https://coveralls.io/r/hassankhan/Syngr)
 
-_Description: What does this project do and who does it serve?_
+This project is an effort to consolidate PHP's wildly varying functions, and provide some sort of Standard Library for it.
 
 ## Project Setup
 
-_How do I, as a developer, start working on the project?_
+Clone the project somewhere, ``cd`` to the directory and type in ``composer install``.
 
 1. _What dependencies does it have (where are they expressed) and how do I install them?_
 2. _How can I see the project working before I change anything?_
@@ -15,7 +15,7 @@ _How do I run the project's automated tests?_
 
 ### Unit Tests
 
-1. `rake spec`
+1. ``phpunit``
 
 ### Integration Tests
 
@@ -52,3 +52,4 @@ _Examples of common tasks_
 - _"Please open github issues"_
 
 ## License
+This project is licensed under the MIT License.

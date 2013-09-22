@@ -251,7 +251,9 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testSubstring()
     {
-        $this->assertStringEndsWith('bar', (string) $this->object->substring(2));
+        $this->assertStringEndsWith(
+            'bar',
+            $this->object->substring(2));
     }
 
     /**

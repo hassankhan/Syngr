@@ -33,11 +33,7 @@ class String extends Object {
      */
     public function __construct($string = '')
     {
-        parent::__construct(
-            array(
-                'content' => $string
-            )
-        );
+        parent::__construct(array('content' => $string));
     }
 
     /**
@@ -65,7 +61,7 @@ class String extends Object {
     public function join($delimiter = '', $data)
     {
         $this->setContent(implode($delimiter, $data));
-        return $this;
+        return (string) $this;
     }
 
     // For greater flexibility, make this work with arrays too
@@ -144,7 +140,7 @@ class String extends Object {
         $string = $this->getContent();
         $length = $length === null ? strlen($string) : $length;
         $this->setContent(substr($string, $start, $length));
-        return $this;
+        return (string) $this;
     }
 
     public function trim($delimiter = ' ', $flags = array())
@@ -174,7 +170,7 @@ class String extends Object {
         }
 
         $this->setContent($text);
-        return $this;
+        return (string) $this;
     }
 
     /**
@@ -184,7 +180,7 @@ class String extends Object {
     public function uppercase()
     {
         $this->setContent(strtoupper($this->getContent()));
-        return $this;
+        return (string) $this;
     }
 
     /**
@@ -194,7 +190,7 @@ class String extends Object {
     public function lowercase()
     {
         $this->setContent(strtolower($this->getContent()));
-        return $this;
+        return (string) $this;
     }
 
     public function pad($length, $delimiter = ' ', $flags = array())
@@ -234,7 +230,7 @@ class String extends Object {
     public function reverse()
     {
         $this->setContent(strrev($this->getContent()));
-        return $this;
+        return (string) $this;
     }
 
     /**
@@ -256,6 +252,6 @@ class String extends Object {
             $text = str_replace($search, $replace, $text, $count);
         }
         $this->setContent($text);
-        return $this;
+        return (string) $this;
     }
 }
