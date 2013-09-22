@@ -1,6 +1,6 @@
 <?php
 /**
- * Base Class
+ * String Class
  *
  * @author Hassan Khan <contact@hassankhan.me>
  */
@@ -87,10 +87,9 @@ class String extends Object {
         if (is_string($string)) {
             // Case-insensitive, natural order
             if (
-                in_array(
-                    array(self::CASE_INSENSITIVE, self::ORDER_NATURAL),
-                    $flags
-                )
+                in_array(self::CASE_INSENSITIVE, $flags)
+                &&
+                in_array(self::ORDER_NATURAL, $flags)
             ) {
                 $comparison_result = strnatcasecmp(
                     $this->getContent(),
@@ -237,19 +236,23 @@ class String extends Object {
      * Finds and replaces text in string
      * @param  string  $search  - The string to look for
      * @param  string  $replace - The string to replace with
-     * @param  integer $count   - (Optional) Limit the number of replacements, unlimited by default
      * @param  array   $flags   - Optional flags
      * @return String           - Returns current instance for method chaining
      */
     // Need to add regex support
-    public function replace($search, $replace, $count = 0, $flags = array())
+    public function replace($search, $replace, $flags = array())
     {
         $text = $this->getContent();
-        if ($count === 0) {
-            $text = str_replace($search, $replace, $text);
+        if(preg_match("/^\/|\/$/", $search)) {
+            $text = preg_replace($search, $replace, $text);
         }
         else {
-            $text = str_replace($search, $replace, $text, $count);
+            if (in_array(self::CASE_INSENSITIVE, $flags)) {
+                $text = str_ireplace($search, $replace, $text);
+            }
+            else {
+                $text = str_replace($search, $replace, $text);
+            }
         }
         $this->setContent($text);
         return (string) $this;

@@ -304,6 +304,30 @@ class StringTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Syngr\String::trim()
+     */
+    public function testTrimCharactersLeft()
+    {
+        $this->object->setContent('$$$foobar£££');
+        $this->assertEquals(
+            'foobar£££',
+            $this->object->trim('$£', array(String::STRING_LEFT))
+        );
+    }
+
+    /**
+     * @covers Syngr\String::trim()
+     */
+    public function testTrimCharactersRight()
+    {
+        $this->object->setContent('$$$foobar£££');
+        $this->assertEquals(
+            '$$$foobar',
+            $this->object->trim('$£', array(String::STRING_RIGHT))
+        );
+    }
+
+    /**
      * @covers Syngr\String::uppercase
      */
     public function testUppercase()
@@ -382,7 +406,14 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testReplaceWithCaseInsensitiveString()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->assertEquals(
+            'feebar',
+            $this->object->replace(
+                'OO',
+                'ee',
+                array(String::CASE_INSENSITIVE)
+            )
+        );
     }
 
     /**
@@ -390,15 +421,10 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testReplaceWithRegex()
     {
-        $this->markTestIncomplete('Not yet implemented');
-    }
-
-    /**
-     * @covers Syngr\String::replace()
-     */
-    public function testReplaceWithLimit()
-    {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->assertEquals(
+            'foujar',
+            $this->object->replace('/ob/', 'uj')
+        );
     }
 
 }

@@ -1,5 +1,7 @@
 # Syngr [![Build Status](https://travis-ci.org/hassankhan/Syngr.png?branch=master)](https://travis-ci.org/hassankhan/Syngr) [![Coverage Status](https://coveralls.io/repos/hassankhan/Syngr/badge.png)](https://coveralls.io/r/hassankhan/Syngr)
 
+    Syngr : Syntactic Sugar
+
 This project is an effort to consolidate PHP's wildly varying functions, and provide some sort of Standard Library for it.
 
 ## Project Setup
