@@ -1,4 +1,4 @@
-# _Project_
+# Syngr [![Build Status](https://travis-ci.org/hassankhan/Syngr.png?branch=master)](https://travis-ci.org/hassankhan/Syngr)
 
 _Description: What does this project do and who does it serve?_
 
