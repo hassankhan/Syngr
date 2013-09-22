@@ -1,4 +1,4 @@
-# Syngr [![Build Status](https://travis-ci.org/hassankhan/Syngr.png?branch=master)](https://travis-ci.org/hassankhan/Syngr)
+# Syngr [![Build Status](https://travis-ci.org/hassankhan/Syngr.png?branch=master)](https://travis-ci.org/hassankhan/Syngr) [![Coverage Status](https://coveralls.io/repos/hassankhan/Syngr/badge.png)](https://coveralls.io/r/hassankhan/Syngr)
 
 _Description: What does this project do and who does it serve?_
 
