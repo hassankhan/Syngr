@@ -59,7 +59,7 @@ class Number extends Object {
         return $this;
     }
 
-    public function ceil()
+    public function ceiling()
     {
         $number = (float) $this->getContent();
         $this->setContent(ceil($number));

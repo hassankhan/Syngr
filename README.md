@@ -4,6 +4,67 @@
 
 This project is an effort to consolidate PHP's wildly varying functions, and provide some sort of Standard Library for it.
 
+## Usage
+
+### String methods
+
+#### Array conversion
+    join()
+    split()
+
+#### Comparison
+    compare()
+
+#### Encoding
+
+#### Hashing
+    hash()
+
+#### HTML
+
+#### Searching
+
+#### String Formatting
+
+#### Substring
+    substring()
+
+#### Text Formatting
+    trim()
+    uppercase()
+    lowercase()
+    pad()
+    length()
+    reverse()
+    replace()
+
+### Number methods
+
+#### Algebraic functions
+    absolute()
+    ceiling()
+    floor()
+    round()
+    max()
+    min()
+    sqrt()
+
+#### Conversions
+
+#### Random
+    random()
+
+#### Transcendental functions
+    exp()
+    log()
+    pow()
+
+#### Trigonometric
+    cos()
+    sin()
+    tan()
+
+
 ## Project Setup
 
 Clone the project somewhere, ``cd`` to the directory and type in ``composer install``.

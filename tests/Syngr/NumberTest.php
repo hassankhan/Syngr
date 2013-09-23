@@ -48,14 +48,14 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Syngr\Number::ceil()
+     * @covers Syngr\Number::ceiling()
      */
     public function testCeiling()
     {
         $this->object->setContent(4.8);
         $this->assertEquals(
             5,
-            $this->object->ceil()->value()
+            $this->object->ceiling()->value()
         );
     }
 
