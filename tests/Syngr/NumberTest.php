@@ -173,7 +173,8 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogNatural()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(1);
+        $this->assertEquals(0.0, $this->object->log('e')->value());
     }
 
     /**
@@ -190,7 +191,8 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testPow()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(2);
+        $this->assertEquals(256, $this->object->pow(8)->value());
     }
 
     /**
@@ -198,7 +200,11 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCosArc()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(1);
+        $this->assertEquals(
+            0,
+            $this->object->cos(array(Number::TRIG_ARC))->value()
+        );
     }
 
     /**
@@ -206,7 +212,8 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCos()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(M_PI);
+        $this->assertEquals(-1, $this->object->cos()->value());
     }
 
     /**
@@ -214,7 +221,11 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCosHyperbolic()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(0);
+        $this->assertEquals(
+            1,
+            $this->object->cos(array(Number::TRIG_HYPERBOLIC))->value()
+        );
     }
 
     /**
@@ -222,7 +233,11 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCosInverseHyperbolic()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(0);
+        $this->assertEquals(
+            1 - $this->object->cos(array(Number::TRIG_HYPERBOLIC))->value(),
+            $this->object->cos(array(Number::TRIG_INVERSE_HYPERBOLIC))->value()
+        );
     }
 
     /**
@@ -230,7 +245,11 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSinArc()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(0);
+        $this->assertEquals(
+            0,
+            $this->object->sin(array(Number::TRIG_ARC))->value()
+        );
     }
 
     /**
@@ -238,7 +257,8 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSin()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(M_PI_2);
+        $this->assertEquals(1, $this->object->sin()->value());
     }
 
     /**
@@ -246,7 +266,11 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSinHyperbolic()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(0);
+        $this->assertEquals(
+            0,
+            $this->object->sin(array(Number::TRIG_HYPERBOLIC))->value()
+        );
     }
 
     /**
@@ -254,7 +278,11 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSinInverseHyperbolic()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(0);
+        $this->assertEquals(
+            0,
+            $this->object->sin(array(Number::TRIG_INVERSE_HYPERBOLIC))->value()
+        );
     }
 
     /**
@@ -262,7 +290,11 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testTanArc()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(0);
+        $this->assertEquals(
+            0,
+            $this->object->tan(array(Number::TRIG_ARC))->value()
+        );
     }
 
     /**
@@ -270,7 +302,8 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testTan()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(M_PI_4);
+        $this->assertEquals(1, $this->object->tan()->value());
     }
 
     /**
@@ -278,7 +311,11 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testTanHyperbolic()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(0);
+        $this->assertEquals(
+            0,
+            $this->object->tan(array(Number::TRIG_HYPERBOLIC))->value()
+        );
     }
 
     /**
@@ -286,7 +323,11 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testTanInverseHyperbolic()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(0);
+        $this->assertEquals(
+            0,
+            $this->object->tan(array(Number::TRIG_INVERSE_HYPERBOLIC))->value()
+        );
     }
 
     /**
@@ -308,7 +349,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Syngr\Number::in_nan()
      */
-    public function testIn_nan()
+    public function testIs_nan()
     {
         $this->markTestIncomplete('Not yet implemented');
     }

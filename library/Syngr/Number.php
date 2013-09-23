@@ -9,10 +9,11 @@ namespace Syngr;
 class Number extends Object {
 
     /**
-     * @const string - Case options
+     * @const string - Trigonometric function options
      */
-    const CASE_INSENSITIVE = 'case_insensitive';
-    const CASE_SENSITIVE   = 'case_sensitive';
+    const TRIG_ARC                = 'arc';
+    const TRIG_HYPERBOLIC         = 'hyperbolic';
+    const TRIG_INVERSE_HYPERBOLIC = 'inverse-hyperbolic';
 
     /**
      * @const string - Ordering options
@@ -127,6 +128,70 @@ class Number extends Object {
         }
         else{
             $number = log($number, $base);
+        }
+        $this->setContent($number);
+        return $this;
+    }
+
+    public function pow($exponent = 1)
+    {
+        $number = $this->getContent();
+        $this->setContent(pow($number, $exponent));
+        return $this;
+    }
+
+    public function cos($flags = array())
+    {
+        $number = $this->getContent();
+        if (in_array(self::TRIG_INVERSE_HYPERBOLIC, $flags)) {
+            $number = acosh($number);
+        }
+        elseif (in_array(self::TRIG_HYPERBOLIC, $flags)) {
+            $number = cosh($number);
+        }
+        elseif (in_array(self::TRIG_ARC, $flags)) {
+            $number = acos($number);
+        }
+        else {
+            $number = cos($number);
+        }
+        $this->setContent($number);
+        return $this;
+    }
+
+    public function sin($flags = array())
+    {
+        $number = $this->getContent();
+        if (in_array(self::TRIG_INVERSE_HYPERBOLIC, $flags)) {
+            $number = asinh($number);
+        }
+        elseif (in_array(self::TRIG_HYPERBOLIC, $flags)) {
+            $number = sinh($number);
+        }
+        elseif (in_array(self::TRIG_ARC, $flags)) {
+            $number = asin($number);
+        }
+        else {
+            $number = sin($number);
+        }
+        $this->setContent($number);
+        return $this;
+    }
+
+    public function tan($flags = array())
+    {
+        $number = $this->getContent();
+        if (in_array(self::TRIG_INVERSE_HYPERBOLIC, $flags)) {
+            $number = atanh($number);
+        }
+        elseif (in_array(self::TRIG_HYPERBOLIC, $flags)) {
+            $number = tanh($number);
+        }
+        elseif (in_array(self::TRIG_ARC, $flags)) {
+            $number = atan($number);
+        }
+        else {
+            $number = tan($number);
         }
         $this->setContent($number);
         return $this;
