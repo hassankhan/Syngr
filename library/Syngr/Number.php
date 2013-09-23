@@ -47,7 +47,8 @@ class Number extends Object {
 
     public function value()
     {
-        return (int) $this->getContent();
+        // $type = gettype($this->getContent());
+        return $this->getContent();
     }
 
     public function absolute()
@@ -68,6 +69,66 @@ class Number extends Object {
     {
         $number = (float) $this->getContent();
         $this->setContent(floor($number));
+        return $this;
+    }
+
+    public function round($precision = 0)
+    {
+        $number = (float) $this->getContent();
+        $this->setContent(round($number, $precision));
+        return $this;
+    }
+
+    public function max($values)
+    {
+        $values[] = $this->getContent();
+        $this->setContent(max($values));
+        return $this;
+    }
+
+    public function min($values)
+    {
+        $values[] = $this->getContent();
+        $this->setContent(min($values));
+        return $this;
+    }
+
+    public function sqrt()
+    {
+        $this->setContent(sqrt($this->getContent()));
+        return $this;
+    }
+
+    public function random($min = 0, $max = null)
+    {
+        if ($min === 0 && $max === null){
+            $this->setContent(mt_rand());
+        }
+        else {
+            $this->setContent(mt_rand($min, $max));
+        }
+        return $this;
+    }
+
+    public function exp($power)
+    {
+        $this->setContent(exp($power));
+        return $this;
+    }
+
+    public function log($base = 10)
+    {
+        $number = $this->getContent();
+        if ($base === 10) {
+            $number = log10($number);
+        }
+        elseif ($base === 'e') {
+            $number = log($number);
+        }
+        else{
+            $number = log($number, $base);
+        }
+        $this->setContent($number);
         return $this;
     }
 

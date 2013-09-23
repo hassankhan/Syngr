@@ -64,15 +64,23 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testFloor()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(4.8);
+        $this->assertEquals(
+            4,
+            $this->object->floor()->value()
+        );
     }
 
     /**
-     * @covers Syngr\Number::min()
+     * @covers Syngr\Number::round()
      */
-    public function testMin()
+    public function testRound()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(4.3456);
+        $this->assertEquals(
+            4.35,
+            $this->object->round(2)->value()
+        );
     }
 
     /**
@@ -80,7 +88,23 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testMax()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(5);
+        $this->assertEquals(
+            9,
+            $this->object->max(array(1, 7, 9))->value()
+        );
+    }
+
+    /**
+     * @covers Syngr\Number::min()
+     */
+    public function testMin()
+    {
+        $this->object->setContent(5);
+        $this->assertEquals(
+            1,
+            $this->object->min(array(1, 7, 9))->value()
+        );
     }
 
     /**
@@ -88,11 +112,15 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSqrt()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(49);
+        $this->assertEquals(
+            7,
+            $this->object->sqrt()->value()
+        );
     }
 
     /**
-     * @covers class::convert()
+     * @covers Syngr\Number::convert()
      */
     public function testConvert()
     {
@@ -100,7 +128,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::random()
+     * @covers Syngr\Number::random()
      */
     public function testRandom()
     {
@@ -108,7 +136,15 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::exp()
+     * @covers Syngr\Number::random()
+     */
+    public function testRandomWithinRange()
+    {
+        $this->markTestIncomplete('Not yet implemented');
+    }
+
+    /**
+     * @covers Syngr\Number::exp()
      */
     public function testExp()
     {
@@ -116,7 +152,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::exp()
+     * @covers Syngr\Number::exp()
      */
     public function testExpMinusOne()
     {
@@ -124,15 +160,16 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::log()
+     * @covers Syngr\Number::log()
      */
     public function testLog()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(10);
+        $this->assertEquals(1.0, $this->object->log(10)->value());
     }
 
     /**
-     * @covers class::log()
+     * @covers Syngr\Number::log()
      */
     public function testLogNatural()
     {
@@ -140,15 +177,16 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::log()
+     * @covers Syngr\Number::log()
      */
     public function testLogWithBase()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(2);
+        $this->assertEquals(1.0, $this->object->log(2)->value());
     }
 
     /**
-     * @covers class::pow()
+     * @covers Syngr\Number::pow()
      */
     public function testPow()
     {
@@ -156,7 +194,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::cos()
+     * @covers Syngr\Number::cos()
      */
     public function testCosArc()
     {
@@ -164,7 +202,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::cos()
+     * @covers Syngr\Number::cos()
      */
     public function testCos()
     {
@@ -172,7 +210,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::cos()
+     * @covers Syngr\Number::cos()
      */
     public function testCosHyperbolic()
     {
@@ -180,7 +218,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::cos()
+     * @covers Syngr\Number::cos()
      */
     public function testCosInverseHyperbolic()
     {
@@ -188,7 +226,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::sin()
+     * @covers Syngr\Number::sin()
      */
     public function testSinArc()
     {
@@ -196,7 +234,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::sin()
+     * @covers Syngr\Number::sin()
      */
     public function testSin()
     {
@@ -204,7 +242,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::sin()
+     * @covers Syngr\Number::sin()
      */
     public function testSinHyperbolic()
     {
@@ -212,7 +250,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::sin()
+     * @covers Syngr\Number::sin()
      */
     public function testSinInverseHyperbolic()
     {
@@ -220,7 +258,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::tan()
+     * @covers Syngr\Number::tan()
      */
     public function testTanArc()
     {
@@ -228,7 +266,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::tan()
+     * @covers Syngr\Number::tan()
      */
     public function testTan()
     {
@@ -236,7 +274,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::tan()
+     * @covers Syngr\Number::tan()
      */
     public function testTanHyperbolic()
     {
@@ -244,7 +282,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::tan()
+     * @covers Syngr\Number::tan()
      */
     public function testTanInverseHyperbolic()
     {
@@ -252,7 +290,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::is_finite()
+     * @covers Syngr\Number::is_finite()
      */
     public function testIs_finite()
     {
@@ -260,7 +298,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::is_infinite()
+     * @covers Syngr\Number::is_infinite()
      */
     public function testIs_infinite()
     {
@@ -268,7 +306,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers class::in_nan()
+     * @covers Syngr\Number::in_nan()
      */
     public function testIn_nan()
     {
