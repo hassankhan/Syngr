@@ -28,3 +28,4 @@ vendor
 docs
 project-phpunit-skelgen.php
 test.php
+cache
