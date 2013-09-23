@@ -469,7 +469,20 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testIs_regex()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->assertTrue(
+            $this->object->is_regex('/^#?([a-f0-9]{6}|[a-f0-9]{3})$/ ')
+        );
+        // $this->markTestIncomplete('Not yet implemented');
+    }
+
+    /**
+     * @covers Syngr\String::is_regex()
+     */
+    public function testIs_regexFailure()
+    {
+        $this->assertFalse(
+            $this->object->is_regex(22)
+        );
     }
 
 }

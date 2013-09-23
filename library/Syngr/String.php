@@ -303,8 +303,8 @@ class String extends Object {
 
     /**
      * Crude method to check for valid regex
-     * @param  string  $regex The string to be validated as regex
-     * @return boolean        Returns true if valid regex, otherwise false
+     * @param  string  $regex - The string to be validated as regex
+     * @return boolean        - Returns true if valid regex, otherwise false
      */
     public function is_regex($regex)
     {

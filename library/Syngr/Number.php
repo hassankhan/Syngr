@@ -17,7 +17,7 @@ class Number extends Object {
 
     /**
      * Constructor function for string object
-     * @param string $string - Textual data as represented by string
+     * @param string $number - Textual data as represented by string
      */
     public function __construct($number = null)
     {
@@ -35,7 +35,6 @@ class Number extends Object {
 
     public function value()
     {
-        // $type = gettype($this->getContent());
         return $this->getContent();
     }
 
@@ -182,6 +181,33 @@ class Number extends Object {
         }
         $this->setContent($number);
         return $this;
+    }
+
+    /**
+     * Checks to see whether vslue is finite
+     * @return boolean - True if value is, otherwise false
+     */
+    public function is_finite()
+    {
+        return is_finite($this->getContent());
+    }
+
+    /**
+     * Checks to see whether value is infinite
+     * @return boolean - True if value is, otherwise false
+     */
+    public function is_infinite()
+    {
+        return is_infinite($this->getContent());
+    }
+
+    /**
+     * Checks to see if value is Not-A-Number (NAN)
+     * @return boolean - True if value is, otherwise false
+     */
+    public function is_nan()
+    {
+        return is_nan($this->getContent());
     }
 
 }

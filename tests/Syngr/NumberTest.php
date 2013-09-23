@@ -335,7 +335,17 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testIs_finite()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(log(10));
+        $this->assertTrue($this->object->is_finite());
+    }
+
+    /**
+     * @covers Syngr\Number::is_finite()
+     */
+    public function testIs_finiteFailure()
+    {
+        $this->object->setContent(log(0));
+        $this->assertFalse($this->object->is_finite());
     }
 
     /**
@@ -343,15 +353,35 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testIs_infinite()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(log(0));
+        $this->assertTrue($this->object->is_infinite());
     }
 
     /**
-     * @covers Syngr\Number::in_nan()
+     * @covers Syngr\Number::is_infinite()
+     */
+    public function testIs_infiniteFailure()
+    {
+        $this->object->setContent(log(10));
+        $this->assertFalse($this->object->is_infinite());
+    }
+
+    /**
+     * @covers Syngr\Number::is_nan()
      */
     public function testIs_nan()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(acos(8));
+        $this->assertTrue($this->object->is_nan());
+    }
+
+    /**
+     * @covers Syngr\Number::is_nan()
+     */
+    public function testIs_nanFailure()
+    {
+        $this->object->setContent(12.4);
+        $this->assertFalse($this->object->is_nan());
     }
 
 }
