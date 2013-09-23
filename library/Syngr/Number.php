@@ -13,20 +13,7 @@ class Number extends Object {
      */
     const TRIG_ARC                = 'arc';
     const TRIG_HYPERBOLIC         = 'hyperbolic';
-    const TRIG_INVERSE_HYPERBOLIC = 'inverse-hyperbolic';
-
-    /**
-     * @const string - Ordering options
-     */
-    const ORDER_NATURAL    = 'order_natural';
-    const ORDER_NORMAL     = 'order_normal';
-
-    /**
-     * @const string - String position options
-     */
-    const STRING_LEFT      = 'left';
-    const STRING_RIGHT     = 'right';
-    const STRING_BOTH      = 'both';
+    const TRIG_INVERSE_HYPERBOLIC = 'inverse_hyperbolic';
 
     /**
      * Constructor function for string object

@@ -95,81 +95,81 @@ class StringTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Syngr\String::compare()
+     * @covers Syngr\String::match()
      */
-    public function testCompare()
+    public function testMatch()
     {
-        $this->assertTrue($this->object->compare('foobar'));
+        $this->assertTrue($this->object->match('foobar'));
     }
 
     /**
-     * @covers Syngr\String::compare()
+     * @covers Syngr\String::match()
      */
-    public function testCompareCaseInsensitive()
+    public function testMatchFailure()
+    {
+        $this->assertFalse($this->object->match('FOOBAR'));
+    }
+
+    /**
+     * @covers Syngr\String::match()
+     */
+    public function testMatchCaseInsensitive()
     {
         $this->assertTrue(
-            $this->object->compare('FOOBAR', array(String::CASE_INSENSITIVE))
+            $this->object->match('FOOBAR', array(String::CASE_INSENSITIVE))
         );
     }
 
     /**
-     * @covers Syngr\String::compare()
+     * @covers Syngr\String::match()
      */
-    public function testCompareFailure()
-    {
-        $this->assertFalse($this->object->compare('FOOBAR'));
-    }
-
-    /**
-     * @covers Syngr\String::compare()
-     */
-    public function testCompareCaseInsensitiveFailure()
+    public function testMatchCaseInsensitiveFailure()
     {
         $this->assertFalse(
-            $this->object->compare('WEEFAW', array(String::CASE_INSENSITIVE))
+            $this->object->match('WEEFAW', array(String::CASE_INSENSITIVE))
         );
     }
 
     /**
-     * @covers Syngr\String::compare()
+     * @covers Syngr\String::match()
      * @expectedException Exception
-     * @expectedExceptionMessage Cannot compare integer with string
+     * @expectedExceptionMessage Cannot match (integer) 666 with string
      */
-    public function testCompareWithNonStringException()
+    public function testMatchWithNonStringException()
     {
-        $this->object->compare(666);
+        $this->object->match(666);
     }
 
     /**
-     * @covers Syngr\String::compare()
+     * @covers Syngr\String::match()
      */
-    public function testCompareNaturalOrder()
+    public function testMatchNaturalOrder()
     {
         $this->object->setContent('img1');
         $this->assertTrue(
-            $this->object->compare('img1', array(String::ORDER_NATURAL))
+            $this->object->match('img1', array(String::ORDER_NATURAL))
         );
     }
 
     /**
-     * @covers Syngr\String::compare()
+     * @covers Syngr\String::match()
      */
-    public function testCompareNaturalOrderFailure()
+    public function testMatchNaturalOrderFailure()
     {
         $this->object->setContent('img1');
         $this->assertFalse(
-            $this->object->compare('img2', array(String::ORDER_NATURAL))
+            $this->object->match('img2', array(String::ORDER_NATURAL))
         );
     }
 
     /**
-     * @covers Syngr\String::compare()
+     * @covers Syngr\String::match()
      */
-    public function testCompareNaturalOrderCaseInsensitive()
+    public function testMatchNaturalOrderCaseInsensitive()
     {
         $this->object->setContent('img1');
         $this->assertTrue(
-            $this->object->compare(
+            $this->object->match(
                 'IMG1',
                 array(String::CASE_INSENSITIVE, String::ORDER_NATURAL)
             )
@@ -177,13 +177,13 @@ class StringTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Syngr\String::compare()
+     * @covers Syngr\String::match()
      */
-    public function testCompareNaturalOrderCaseInsensitiveFailure()
+    public function testMatchNaturalOrderCaseInsensitiveFailure()
     {
         $this->object->setContent('img1');
         $this->assertFalse(
-            $this->object->compare(
+            $this->object->match(
                 'IMG2',
                 array(String::CASE_INSENSITIVE, String::ORDER_NATURAL)
             )
@@ -191,21 +191,43 @@ class StringTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Syngr\String::utf8()
-     * @todo [description]
+     * @covers Syngr\String::match()
      */
-    public function testUtf8Encode()
+    public function testMatchWithRegex()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->assertTrue($this->object->match('/oob/'));
     }
 
     /**
-     * @covers Syngr\String::utf8()
-     * @todo [description]
+     * @covers Syngr\String::match()
+     */
+    public function testMatchWithRegexFailure()
+    {
+        $this->assertFalse($this->object->match('/xyz/'));
+    }
+
+    /**
+     * @covers Syngr\String::utf8_encode()
+     */
+    public function testUtf8Encode()
+    {
+        $this->object->setContent('Kissa käveli öisellä kadulla');
+        $this->assertEquals(
+            'Kissa kÃ¤veli Ã¶isellÃ¤ kadulla',
+            $this->object->utf8_encode()
+        );
+    }
+
+    /**
+     * @covers Syngr\String::utf8_decode()
      */
     public function testUtf8Decode()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent('Kissa kÃ¤veli Ã¶isellÃ¤ kadulla');
+        $this->assertEquals(
+            'Kissa käveli öisellä kadulla',
+            $this->object->utf8_decode()
+        );
     }
 
     /**
@@ -235,7 +257,13 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testHtml_decode()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(
+            "I'll &quot;walk&quot; the &lt;b&gt;dog&lt;/b&gt; now"
+        );
+        $this->assertEquals(
+            "I'll \"walk\" the <b>dog</b> now",
+            (string) $this->object->html_decode()
+        );
     }
 
     /**
@@ -243,7 +271,13 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testHtml_encode()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->object->setContent(
+            "I'll \"walk\" the <b>dog</b> now"
+        );
+        $this->assertEquals(
+            "I'll &quot;walk&quot; the &lt;b&gt;dog&lt;/b&gt; now",
+            (string) $this->object->html_encode()
+        );
     }
 
     /**
@@ -253,7 +287,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertStringEndsWith(
             'bar',
-            $this->object->substring(2));
+            (string) $this->object->substring(2));
     }
 
     /**
@@ -382,7 +416,10 @@ class StringTest extends \PHPUnit_Framework_TestCase
      */
     public function testPadCharacters()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->assertEquals(
+            'foobar####',
+            $this->object->pad(4, '#')
+        );
     }
 
     /**
@@ -425,6 +462,14 @@ class StringTest extends \PHPUnit_Framework_TestCase
             'foujar',
             $this->object->replace('/ob/', 'uj')
         );
+    }
+
+    /**
+     * @covers Syngr\String::is_regex()
+     */
+    public function testIs_regex()
+    {
+        $this->markTestIncomplete('Not yet implemented');
     }
 
 }

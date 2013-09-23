@@ -21,6 +21,12 @@ class String extends Object {
     const ORDER_NORMAL     = 'order_normal';
 
     /**
+     * @const string - Regex options
+     */
+    const REGEX_MATCH_ALL  = 'regex_match_all';
+    const REGEX_RETURN     = 'regex_return';
+
+    /**
      * @const string - String position options
      */
     const STRING_LEFT      = 'left';
@@ -61,10 +67,10 @@ class String extends Object {
     public function join($delimiter = '', $data)
     {
         $this->setContent(implode($delimiter, $data));
-        return (string) $this;
+        return $this;
     }
 
-    // For greater flexibility, make this work with arrays too
+    // For greater flexibility, make this work with regex too
     public function split($splitter)
     {
         $text = $this->getContent();
@@ -80,11 +86,16 @@ class String extends Object {
         return $text;
     }
 
-    public function compare($string, $flags = array())
+    public function match($match_string, $flags = array())
     {
-        $comparison_result = 0;
+        $string            = $this->getContent();
 
-        if (is_string($string)) {
+        // Regex
+        if (is_string($match_string) && $this->is_regex($match_string)) {
+            return preg_match($match_string, $string) === 1 ? true : false;
+        }
+        elseif (is_string($match_string)) {
+            $comparison_result = 0;
             // Case-insensitive, natural order
             if (
                 in_array(self::CASE_INSENSITIVE, $flags)
@@ -92,30 +103,49 @@ class String extends Object {
                 in_array(self::ORDER_NATURAL, $flags)
             ) {
                 $comparison_result = strnatcasecmp(
-                    $this->getContent(),
-                    $string
+                    $string,
+                    $match_string
                 );
             }
             // Case-insensitive
             elseif (in_array(self::CASE_INSENSITIVE, $flags)) {
-                $comparison_result = strcasecmp($this->getContent(), $string);
+                $comparison_result = strcasecmp(
+                    $string,
+                    $match_string
+                );
             }
             // Natural order
             elseif (in_array(self::ORDER_NATURAL, $flags)) {
                 $comparison_result = strnatcmp(
-                    $this->getContent(),
-                    $string
+                    $string,
+                    $match_string
                 );
             }
             // Case-sensitive
             else {
-                $comparison_result = strcmp($this->getContent(), $string);
+                $comparison_result = strcmp($string, $match_string);
             }
             return $comparison_result === 0 ? true : false;
         }
         else {
-            throw new \Exception('Cannot compare ' . gettype($string) . ' with string');
+            throw new \Exception(
+                "Cannot match ("
+                    . gettype($match_string)
+                    . ") {$match_string} with string"
+            );
         }
+    }
+
+    public function utf8_encode()
+    {
+        $this->setContent(utf8_encode($this->getContent()));
+        return $this;
+    }
+
+    public function utf8_decode()
+    {
+        $this->setContent(utf8_decode($this->getContent()));
+        return $this;
     }
 
     /**
@@ -125,7 +155,20 @@ class String extends Object {
      */
     public function hash($algorithm = 'MD5')
     {
-        return hash($algorithm, $this->getContent());
+        $this->setContent(hash($algorithm, $this->getContent()));
+        return $this;
+    }
+
+    public function html_decode()
+    {
+        $this->setContent(html_entity_decode($this->getContent()));
+        return $this;
+    }
+
+    public function html_encode()
+    {
+        $this->setContent(htmlentities($this->getContent()));
+        return $this;
     }
 
     /**
@@ -139,7 +182,7 @@ class String extends Object {
         $string = $this->getContent();
         $length = $length === null ? strlen($string) : $length;
         $this->setContent(substr($string, $start, $length));
-        return (string) $this;
+        return $this;
     }
 
     public function trim($delimiter = ' ', $flags = array())
@@ -169,7 +212,7 @@ class String extends Object {
         }
 
         $this->setContent($text);
-        return (string) $this;
+        return $this;
     }
 
     /**
@@ -179,7 +222,7 @@ class String extends Object {
     public function uppercase()
     {
         $this->setContent(strtoupper($this->getContent()));
-        return (string) $this;
+        return $this;
     }
 
     /**
@@ -189,7 +232,7 @@ class String extends Object {
     public function lowercase()
     {
         $this->setContent(strtolower($this->getContent()));
-        return (string) $this;
+        return $this;
     }
 
     public function pad($length, $delimiter = ' ', $flags = array())
@@ -219,7 +262,7 @@ class String extends Object {
             );
         }
         $this->setContent($text);
-        return $this->getContent();
+        return $this;
     }
 
     /**
@@ -229,7 +272,7 @@ class String extends Object {
     public function reverse()
     {
         $this->setContent(strrev($this->getContent()));
-        return (string) $this;
+        return $this;
     }
 
     /**
@@ -243,7 +286,7 @@ class String extends Object {
     public function replace($search, $replace, $flags = array())
     {
         $text = $this->getContent();
-        if(preg_match("/^\/|\/$/", $search)) {
+        if($this->is_regex($search)) {
             $text = preg_replace($search, $replace, $text);
         }
         else {
@@ -255,6 +298,16 @@ class String extends Object {
             }
         }
         $this->setContent($text);
-        return (string) $this;
+        return $this;
+    }
+
+    /**
+     * Crude method to check for valid regex
+     * @param  string  $regex The string to be validated as regex
+     * @return boolean        Returns true if valid regex, otherwise false
+     */
+    public function is_regex($regex)
+    {
+        return preg_match("/^\/|\/$/", $regex) === 1 ? true : false;
     }
 }

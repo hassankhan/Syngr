@@ -6,14 +6,25 @@ This project is an effort to consolidate PHP's wildly varying functions, and pro
 
 ## Usage
 
+The idea is to make programming in PHP simpler, and force it to behave in a more predictable manner. Most, if not all, methods for these types all operate on the object itself, which gives us a nice side-benefit of being able to chain multiple methods on an object.
+
 ### String methods
+
+    $string = new String('hello world');
+    echo $string->uppercase()
+                ->substring(0, 6)
+                ->replace(' ', '?')
+                ->trim('?');
+
+    // Should print out
+    // HELLO
 
 #### Array conversion
     join()
     split()
 
 #### Comparison
-    compare()
+    compare() // Change to match() after implementing preg_match()
 
 #### Encoding
 
