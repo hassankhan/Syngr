@@ -66,8 +66,7 @@ class String extends Object {
     // EDIT : Maybe it belongs in the array class?
     public function join($delimiter = '', $data)
     {
-        $this->setContent(implode($delimiter, $data));
-        return $this;
+        return new String(implode($delimiter, $data));
     }
 
     // For greater flexibility, make this work with regex too
@@ -138,14 +137,12 @@ class String extends Object {
 
     public function utf8_encode()
     {
-        $this->setContent(utf8_encode($this->getContent()));
-        return $this;
+        return new String(utf8_encode($this->getContent()));
     }
 
     public function utf8_decode()
     {
-        $this->setContent(utf8_decode($this->getContent()));
-        return $this;
+        return new String(utf8_decode($this->getContent()));
     }
 
     /**
@@ -155,20 +152,17 @@ class String extends Object {
      */
     public function hash($algorithm = 'MD5')
     {
-        $this->setContent(hash($algorithm, $this->getContent()));
-        return $this;
+        return new String(hash($algorithm, $this->getContent()));
     }
 
     public function html_decode()
     {
-        $this->setContent(html_entity_decode($this->getContent()));
-        return $this;
+        return new String(html_entity_decode($this->getContent()));
     }
 
     public function html_encode()
     {
-        $this->setContent(htmlentities($this->getContent()));
-        return $this;
+        return new String(htmlentities($this->getContent()));
     }
 
     /**
@@ -181,8 +175,7 @@ class String extends Object {
     {
         $string = $this->getContent();
         $length = $length === null ? strlen($string) : $length;
-        $this->setContent(substr($string, $start, $length));
-        return $this;
+        return new String(substr($string, $start, $length));
     }
 
     public function trim($delimiter = ' ', $flags = array())
@@ -211,8 +204,7 @@ class String extends Object {
             }
         }
 
-        $this->setContent($text);
-        return $this;
+        return new String($text);
     }
 
     /**
@@ -221,8 +213,7 @@ class String extends Object {
      */
     public function uppercase()
     {
-        $this->setContent(strtoupper($this->getContent()));
-        return $this;
+        return new String(strtoupper($this->getContent()));
     }
 
     /**
@@ -231,8 +222,7 @@ class String extends Object {
      */
     public function lowercase()
     {
-        $this->setContent(strtolower($this->getContent()));
-        return $this;
+        return new String(strtolower($this->getContent()));
     }
 
     public function pad($length, $delimiter = ' ', $flags = array())
@@ -261,8 +251,7 @@ class String extends Object {
                 $delimiter
             );
         }
-        $this->setContent($text);
-        return $this;
+        return new String($text);
     }
 
     /**
@@ -271,8 +260,7 @@ class String extends Object {
      */
     public function reverse()
     {
-        $this->setContent(strrev($this->getContent()));
-        return $this;
+        return new String(strrev($this->getContent()));
     }
 
     /**
@@ -297,8 +285,7 @@ class String extends Object {
                 $text = str_replace($search, $replace, $text);
             }
         }
-        $this->setContent($text);
-        return $this;
+        return new String($text);
     }
 
     /**

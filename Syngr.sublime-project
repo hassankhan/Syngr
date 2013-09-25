@@ -2,6 +2,11 @@
 	"folders":
 	[
 		{
+            "folder_exclude_patterns":
+            [
+                "cache",
+                "docs"
+            ],
 			"follow_symlinks": true,
 			"path": "/Applications/MAMP/htdocs/Syngr"
 		}
