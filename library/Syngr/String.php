@@ -308,6 +308,9 @@ class String extends Object {
      */
     public function is_regex($regex)
     {
-        return preg_match("/^\/|\/$/", $regex) === 1 ? true : false;
+        // validate regexp with different(mostly used) delimiters
+        // and after apply a hook to check if it is valid
+        return 1 === preg_match("/^(\/|#|~|%|@|!).+(\/|#|~|%|@|!)(i|m|s|x|u|j)*$/ui", trim($regex))
+            && false !== @preg_match($regex, '');
     }
 }
