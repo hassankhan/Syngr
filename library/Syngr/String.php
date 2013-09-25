@@ -310,7 +310,7 @@ class String extends Object {
     {
         // validate regexp with different(mostly used) delimiters
         // and after apply a hook to check if it is valid
-        return 1 === preg_match("/^(\/|#|~|%|@|!).+(\/|#|~|%|@|!)(i|m|s|x|u|j)*$/ui", $regex)
+        return 1 === preg_match("/^(\/|#|~|%|@|!).+(\/|#|~|%|@|!)(i|m|s|x|u|j)*$/ui", trim($regex))
             && false !== @preg_match($regex, '');
     }
 }
