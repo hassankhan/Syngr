@@ -40,67 +40,58 @@ class Number extends Object {
 
     public function absolute()
     {
-        $number = (int) $this->getContent();
-        $this->setContent(abs($number));
-        return $this;
+        return new Number(abs((int) $this->getContent()));
     }
 
     public function ceiling()
     {
-        $number = (float) $this->getContent();
-        $this->setContent(ceil($number));
-        return $this;
+        return new Number(ceil((float) $this->getContent()));
     }
 
     public function floor()
     {
-        $number = (float) $this->getContent();
-        $this->setContent(floor($number));
-        return $this;
+        return new Number(floor((float) $this->getContent()));
     }
 
     public function round($precision = 0)
     {
-        $number = (float) $this->getContent();
-        $this->setContent(round($number, $precision));
-        return $this;
+        return new Number(round((float) $this->getContent(), $precision));
     }
 
     public function max($values)
     {
         $values[] = $this->getContent();
-        $this->setContent(max($values));
-        return $this;
+        return new Number(max($values));
     }
 
     public function min($values)
     {
         $values[] = $this->getContent();
-        $this->setContent(min($values));
-        return $this;
+        return new Number(min($values));
     }
 
     public function sqrt()
     {
-        $this->setContent(sqrt($this->getContent()));
-        return $this;
+        return new Number(sqrt($this->getContent()));
     }
 
+
+    // This should probably be a static function or something
     public function random($min = 0, $max = null)
     {
+        $number = 0;
         if ($min === 0 && $max === null){
-            $this->setContent(mt_rand());
+            $number = mt_rand();
         }
         else {
-            $this->setContent(mt_rand($min, $max));
+            $number = mt_rand($min, $max);
         }
-        return $this;
+        return new Number($number);
     }
 
     public function exp($power)
     {
-        $this->setContent(exp($power));
-        return $this;
+        return new Number(exp($power));
     }
 
     public function log($base = 10)
@@ -115,15 +106,12 @@ class Number extends Object {
         else{
             $number = log($number, $base);
         }
-        $this->setContent($number);
-        return $this;
+        return new Number($number);
     }
 
     public function pow($exponent = 1)
     {
-        $number = $this->getContent();
-        $this->setContent(pow($number, $exponent));
-        return $this;
+        return new Number(pow($this->getContent(), $exponent));
     }
 
     public function cos($flags = array())
@@ -141,8 +129,7 @@ class Number extends Object {
         else {
             $number = cos($number);
         }
-        $this->setContent($number);
-        return $this;
+        return new Number($number);
     }
 
     public function sin($flags = array())
@@ -160,8 +147,7 @@ class Number extends Object {
         else {
             $number = sin($number);
         }
-        $this->setContent($number);
-        return $this;
+        return new Number($number);
     }
 
     public function tan($flags = array())
@@ -179,8 +165,7 @@ class Number extends Object {
         else {
             $number = tan($number);
         }
-        $this->setContent($number);
-        return $this;
+        return new Number($number);
     }
 
     /**

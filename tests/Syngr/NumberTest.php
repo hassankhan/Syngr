@@ -148,7 +148,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testExp()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $this->assertEquals(M_E, $this->object->exp(1)->value());
     }
 
     /**
@@ -233,9 +233,9 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCosInverseHyperbolic()
     {
-        $this->object->setContent(0);
+        $this->object->setContent(1);
         $this->assertEquals(
-            1 - $this->object->cos(array(Number::TRIG_HYPERBOLIC))->value(),
+            0,
             $this->object->cos(array(Number::TRIG_INVERSE_HYPERBOLIC))->value()
         );
     }
