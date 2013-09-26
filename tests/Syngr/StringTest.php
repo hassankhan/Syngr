@@ -242,6 +242,22 @@ class StringTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Syngr\String::bcrypt()
+     */
+    public function testBcrypt()
+    {
+        if (!function_exists('password_hash')) {
+            $this->markTestSkipped(
+                'The password_hash() function is not available'
+            );
+        }
+        else {
+            $hash = $this->object->bcrypt();
+            $this->assertEquals($hash, crypt('foobar', $hash));
+        }
+    }
+
+    /**
      * @covers Syngr\String::hash()
      */
     public function testHashWithSha1()

@@ -157,20 +157,33 @@ class String extends Object {
     {
         return new String(hash($algorithm, $this->content));
     }
-    
+
     /**
-     * Returns a blowfish encrypted string. This is a adaptation of IRCMaxwell's password_hash compat function
+     * Returns a blowfish encrypted string. This is a adaptation of
+     * ircmaxwell's password_compat library
      * @param integer $cost     - The cost of the operation
      * @return \Syngr\String
      */
     public function bcrypt($cost = 13) {
-        if (function_exists("password_hash")) {
-            $this->setContent(password_hash($this->getContent(), PASSWORD_BCRYPT, array("cost" => $cost)));
-            
-            return $this;
-        } else {
+        $string = $this->content;
+
+        if (function_exists('password_hash')) {
+            $string = password_hash(
+                $string,
+                PASSWORD_BCRYPT,
+                array('cost' => $cost)
+            );
+
+        }
+        else {
             if ($cost < 4 || $cost > 31) {
-                trigger_error(sprintf("password_hash(): Invalid bcrypt cost parameter specified: %d", $cost), E_USER_WARNING);
+                trigger_error(
+                    sprintf(
+                        'password_hash(): Invalid bcrypt cost parameter specified: %d',
+                        $cost
+                    ),
+                    E_USER_WARNING
+                );
                 return null;
             }
             // The length of salt to generate
@@ -178,7 +191,7 @@ class String extends Object {
             // The length required in the final serialization
             $required_salt_len = 22;
             $hash_format = sprintf("$2y$%02d$", $cost);
-            
+
             $buffer = '';
             $buffer_valid = false;
             if (function_exists('mcrypt_create_iv') && !defined('PHALANGER')) {
@@ -215,21 +228,13 @@ class String extends Object {
                     }
                 }
             }
-            
+
             $salt = str_replace('+', '.', base64_encode($buffer));
             $salt = substr($salt, 0, $required_salt_len);
-
             $hash = $hash_format . $salt;
+            $string = crypt($string, $hash);
 
-            $ret = crypt($this->getContent(), $hash);
-
-            if (!is_string($ret) || strlen($ret) <= 13) {
-                return $this;
-            }
-            
-            $this->setContent($ret);
-            
-            return $this;
+            return new String($string);
         }
     }
 
