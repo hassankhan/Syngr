@@ -40,7 +40,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testAbsolute()
     {
-        $this->object->setContent(-100);
+        $this->object = new Number(-100);
         $this->assertEquals(
             100,
             $this->object->absolute()->value()
@@ -52,7 +52,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCeiling()
     {
-        $this->object->setContent(4.8);
+        $this->object = new Number(4.8);
         $this->assertEquals(
             5,
             $this->object->ceiling()->value()
@@ -64,7 +64,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testFloor()
     {
-        $this->object->setContent(4.8);
+        $this->object = new Number(4.8);
         $this->assertEquals(
             4,
             $this->object->floor()->value()
@@ -76,7 +76,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testRound()
     {
-        $this->object->setContent(4.3456);
+        $this->object = new Number(4.3456);
         $this->assertEquals(
             4.35,
             $this->object->round(2)->value()
@@ -88,7 +88,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testMax()
     {
-        $this->object->setContent(5);
+        $this->object = new Number(5);
         $this->assertEquals(
             9,
             $this->object->max(array(1, 7, 9))->value()
@@ -100,7 +100,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testMin()
     {
-        $this->object->setContent(5);
+        $this->object = new Number(5);
         $this->assertEquals(
             1,
             $this->object->min(array(1, 7, 9))->value()
@@ -112,7 +112,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSqrt()
     {
-        $this->object->setContent(49);
+        $this->object = new Number(49);
         $this->assertEquals(
             7,
             $this->object->sqrt()->value()
@@ -132,7 +132,10 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testRandom()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $result = Number::random()->value();
+
+        $this->assertGreaterThanOrEqual(0, $result);
+        $this->assertLessThanOrEqual(mt_getrandmax(), $result);
     }
 
     /**
@@ -140,7 +143,12 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testRandomWithinRange()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $min    = 0;
+        $max    = 10;
+        $result = Number::random($min, $max)->value();
+
+        $this->assertGreaterThanOrEqual($min, $result);
+        $this->assertLessThanOrEqual($max, $result);
     }
 
     /**
@@ -164,7 +172,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testLog()
     {
-        $this->object->setContent(10);
+        $this->object = new Number(10);
         $this->assertEquals(1.0, $this->object->log(10)->value());
     }
 
@@ -173,7 +181,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogNatural()
     {
-        $this->object->setContent(1);
+        $this->object = new Number(1);
         $this->assertEquals(0.0, $this->object->log('e')->value());
     }
 
@@ -182,7 +190,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogWithBase()
     {
-        $this->object->setContent(2);
+        $this->object = new Number(2);
         $this->assertEquals(1.0, $this->object->log(2)->value());
     }
 
@@ -191,7 +199,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testPow()
     {
-        $this->object->setContent(2);
+        $this->object = new Number(2);
         $this->assertEquals(256, $this->object->pow(8)->value());
     }
 
@@ -200,7 +208,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCosArc()
     {
-        $this->object->setContent(1);
+        $this->object = new Number(1);
         $this->assertEquals(
             0,
             $this->object->cos(array(Number::TRIG_ARC))->value()
@@ -212,7 +220,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCos()
     {
-        $this->object->setContent(M_PI);
+        $this->object = new Number(M_PI);
         $this->assertEquals(-1, $this->object->cos()->value());
     }
 
@@ -221,7 +229,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCosHyperbolic()
     {
-        $this->object->setContent(0);
+        $this->object = new Number(0);
         $this->assertEquals(
             1,
             $this->object->cos(array(Number::TRIG_HYPERBOLIC))->value()
@@ -233,7 +241,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testCosInverseHyperbolic()
     {
-        $this->object->setContent(1);
+        $this->object = new Number(1);
         $this->assertEquals(
             0,
             $this->object->cos(array(Number::TRIG_INVERSE_HYPERBOLIC))->value()
@@ -245,7 +253,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSinArc()
     {
-        $this->object->setContent(0);
+        $this->object = new Number(0);
         $this->assertEquals(
             0,
             $this->object->sin(array(Number::TRIG_ARC))->value()
@@ -257,7 +265,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSin()
     {
-        $this->object->setContent(M_PI_2);
+        $this->object = new Number(M_PI_2);
         $this->assertEquals(1, $this->object->sin()->value());
     }
 
@@ -266,7 +274,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSinHyperbolic()
     {
-        $this->object->setContent(0);
+        $this->object = new Number(0);
         $this->assertEquals(
             0,
             $this->object->sin(array(Number::TRIG_HYPERBOLIC))->value()
@@ -278,7 +286,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testSinInverseHyperbolic()
     {
-        $this->object->setContent(0);
+        $this->object = new Number(0);
         $this->assertEquals(
             0,
             $this->object->sin(array(Number::TRIG_INVERSE_HYPERBOLIC))->value()
@@ -290,7 +298,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testTanArc()
     {
-        $this->object->setContent(0);
+        $this->object = new Number(0);
         $this->assertEquals(
             0,
             $this->object->tan(array(Number::TRIG_ARC))->value()
@@ -302,7 +310,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testTan()
     {
-        $this->object->setContent(M_PI_4);
+        $this->object = new Number(M_PI_4);
         $this->assertEquals(1, $this->object->tan()->value());
     }
 
@@ -311,7 +319,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testTanHyperbolic()
     {
-        $this->object->setContent(0);
+        $this->object = new Number(0);
         $this->assertEquals(
             0,
             $this->object->tan(array(Number::TRIG_HYPERBOLIC))->value()
@@ -323,7 +331,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testTanInverseHyperbolic()
     {
-        $this->object->setContent(0);
+        $this->object = new Number(0);
         $this->assertEquals(
             0,
             $this->object->tan(array(Number::TRIG_INVERSE_HYPERBOLIC))->value()
@@ -335,7 +343,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testIs_finite()
     {
-        $this->object->setContent(log(10));
+        $this->object = new Number(log(10));
         $this->assertTrue($this->object->is_finite());
     }
 
@@ -344,7 +352,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testIs_finiteFailure()
     {
-        $this->object->setContent(log(0));
+        $this->object = new Number(log(0));
         $this->assertFalse($this->object->is_finite());
     }
 
@@ -353,7 +361,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testIs_infinite()
     {
-        $this->object->setContent(log(0));
+        $this->object = new Number(log(0));
         $this->assertTrue($this->object->is_infinite());
     }
 
@@ -362,7 +370,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testIs_infiniteFailure()
     {
-        $this->object->setContent(log(10));
+        $this->object = new Number(log(10));
         $this->assertFalse($this->object->is_infinite());
     }
 
@@ -371,7 +379,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testIs_nan()
     {
-        $this->object->setContent(acos(8));
+        $this->object = new Number(acos(8));
         $this->assertTrue($this->object->is_nan());
     }
 
@@ -380,7 +388,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
      */
     public function testIs_nanFailure()
     {
-        $this->object->setContent(12.4);
+        $this->object = new Number(12.4);
         $this->assertFalse($this->object->is_nan());
     }
 

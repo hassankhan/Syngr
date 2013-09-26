@@ -21,7 +21,7 @@ class Number extends Object {
      */
     public function __construct($number = null)
     {
-        parent::__construct(array('content' => $number));
+        parent::__construct($number);
     }
 
     /**
@@ -30,54 +30,22 @@ class Number extends Object {
      */
     public function __toString()
     {
-        return strval($this->getContent());
+        return strval($this->content);
     }
 
     public function value()
     {
-        return $this->getContent();
+        return $this->content;
     }
 
-    public function absolute()
-    {
-        return new Number(abs($this->getContent()));
-    }
-
-    public function ceiling()
-    {
-        return new Number(ceil((float) $this->getContent()));
-    }
-
-    public function floor()
-    {
-        return new Number(floor((float) $this->getContent()));
-    }
-
-    public function round($precision = 0)
-    {
-        return new Number(round((float) $this->getContent(), $precision));
-    }
-
-    public function max($values)
-    {
-        $values[] = $this->getContent();
-        return new Number(max($values));
-    }
-
-    public function min($values)
-    {
-        $values[] = $this->getContent();
-        return new Number(min($values));
-    }
-
-    public function sqrt()
-    {
-        return new Number(sqrt($this->getContent()));
-    }
-
-
-    // This should probably be a static function or something
-    public function random($min = 0, $max = null)
+    /**
+     * Static function that returns a random number. If required, optional lower
+     * and higher boundaries for the random value can be passed as parameters
+     * @param  integer $min Lower boundary
+     * @param  integer $max Higher boundary
+     * @return Number
+     */
+    public static function random($min = 0, $max = null)
     {
         $number = 0;
         if ($min === 0 && $max === null){
@@ -89,6 +57,43 @@ class Number extends Object {
         return new Number($number);
     }
 
+    public function absolute()
+    {
+        return new Number(abs($this->content));
+    }
+
+    public function ceiling()
+    {
+        return new Number(ceil((double) $this->content));
+    }
+
+    public function floor()
+    {
+        return new Number(floor((double) $this->content));
+    }
+
+    public function round($precision = 0)
+    {
+        return new Number(round((double) $this->content, $precision));
+    }
+
+    public function max($values)
+    {
+        $values[] = $this->content;
+        return new Number(max($values));
+    }
+
+    public function min($values)
+    {
+        $values[] = $this->content;
+        return new Number(min($values));
+    }
+
+    public function sqrt()
+    {
+        return new Number(sqrt($this->content));
+    }
+
     public function exp($power)
     {
         return new Number(exp($power));
@@ -96,7 +101,7 @@ class Number extends Object {
 
     public function log($base = 10)
     {
-        $number = $this->getContent();
+        $number = $this->content;
         if ($base === 10) {
             $number = log10($number);
         }
@@ -111,12 +116,12 @@ class Number extends Object {
 
     public function pow($exponent = 1)
     {
-        return new Number(pow($this->getContent(), $exponent));
+        return new Number(pow($this->content, $exponent));
     }
 
     public function cos($flags = array())
     {
-        $number = $this->getContent();
+        $number = $this->content;
         if (in_array(self::TRIG_INVERSE_HYPERBOLIC, $flags)) {
             $number = acosh($number);
         }
@@ -134,7 +139,7 @@ class Number extends Object {
 
     public function sin($flags = array())
     {
-        $number = $this->getContent();
+        $number = $this->content;
         if (in_array(self::TRIG_INVERSE_HYPERBOLIC, $flags)) {
             $number = asinh($number);
         }
@@ -152,7 +157,7 @@ class Number extends Object {
 
     public function tan($flags = array())
     {
-        $number = $this->getContent();
+        $number = $this->content;
         if (in_array(self::TRIG_INVERSE_HYPERBOLIC, $flags)) {
             $number = atanh($number);
         }
@@ -174,7 +179,7 @@ class Number extends Object {
      */
     public function is_finite()
     {
-        return is_finite($this->getContent());
+        return is_finite($this->content);
     }
 
     /**
@@ -183,7 +188,7 @@ class Number extends Object {
      */
     public function is_infinite()
     {
-        return is_infinite($this->getContent());
+        return is_infinite($this->content);
     }
 
     /**
@@ -192,7 +197,7 @@ class Number extends Object {
      */
     public function is_nan()
     {
-        return is_nan($this->getContent());
+        return is_nan($this->content);
     }
 
 }

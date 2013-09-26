@@ -40,9 +40,9 @@ class String extends Object {
      * Constructor function for string object
      * @param string $string - Textual data as represented by string
      */
-    public function __construct($string = '')
+    public function __construct($string = null)
     {
-        parent::__construct(array('content' => $string));
+        parent::__construct($string);
     }
 
     /**
@@ -51,7 +51,7 @@ class String extends Object {
      */
     public function __toString()
     {
-        return $this->getContent();
+        return $this->content;
     }
 
     /**
@@ -60,7 +60,7 @@ class String extends Object {
      */
     public function length()
     {
-        return strlen($this->getContent());
+        return strlen($this->content);
     }
 
     // Currently replaces current content with new data
@@ -75,7 +75,7 @@ class String extends Object {
     // For greater flexibility, make this work with regex too
     public function split($splitter)
     {
-        $text = $this->getContent();
+        $text = $this->content;
         if (is_int($splitter)) {
             $text = str_split($text, $splitter);
         }
@@ -90,7 +90,7 @@ class String extends Object {
 
     public function match($match_string, $flags = array())
     {
-        $string            = $this->getContent();
+        $string            = $this->content;
 
         // Regex
         if (is_string($match_string) && $this->is_regex($match_string)) {
@@ -140,12 +140,12 @@ class String extends Object {
 
     public function utf8_encode()
     {
-        return new String(utf8_encode($this->getContent()));
+        return new String(utf8_encode($this->content));
     }
 
     public function utf8_decode()
     {
-        return new String(utf8_decode($this->getContent()));
+        return new String(utf8_decode($this->content));
     }
 
     /**
@@ -155,17 +155,17 @@ class String extends Object {
      */
     public function hash($algorithm = 'MD5')
     {
-        return new String(hash($algorithm, $this->getContent()));
+        return new String(hash($algorithm, $this->content));
     }
 
     public function html_decode()
     {
-        return new String(html_entity_decode($this->getContent()));
+        return new String(html_entity_decode($this->content));
     }
 
     public function html_encode()
     {
-        return new String(htmlentities($this->getContent()));
+        return new String(htmlentities($this->content));
     }
 
     /**
@@ -176,14 +176,14 @@ class String extends Object {
      */
     public function substring($start, $length = null)
     {
-        $string = $this->getContent();
+        $string = $this->content;
         $length = $length === null ? strlen($string) : $length;
         return new String(substr($string, $start, $length));
     }
 
     public function trim($delimiter = ' ', $flags = array())
     {
-        $text = $this->getContent();
+        $text = $this->content;
         if ($delimiter === ' ') {
             if (in_array(self::STRING_LEFT, $flags)) {
                 $text = ltrim($text);
@@ -216,7 +216,7 @@ class String extends Object {
      */
     public function uppercase()
     {
-        return new String(strtoupper($this->getContent()));
+        return new String(strtoupper($this->content));
     }
 
     /**
@@ -225,12 +225,12 @@ class String extends Object {
      */
     public function lowercase()
     {
-        return new String(strtolower($this->getContent()));
+        return new String(strtolower($this->content));
     }
 
     public function pad($length, $delimiter = ' ', $flags = array())
     {
-        $text = $this->getContent();
+        $text = $this->content;
         if (in_array(self::STRING_LEFT, $flags)) {
             $text = str_pad(
                 $text,
@@ -263,7 +263,7 @@ class String extends Object {
      */
     public function reverse()
     {
-        return new String(strrev($this->getContent()));
+        return new String(strrev($this->content));
     }
 
     /**
@@ -276,7 +276,7 @@ class String extends Object {
     // Need to add regex support
     public function replace($search, $replace, $flags = array())
     {
-        $text = $this->getContent();
+        $text = $this->content;
         if($this->is_regex($search)) {
             $text = preg_replace($search, $replace, $text);
         }
