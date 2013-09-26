@@ -21,9 +21,14 @@ class Object
      * @param mixed $content  - Variable content
      * @codeCoverageIgnore
      */
-    public function __construct($content)
+    public function __construct($content = null)
     {
         $this->content = $content;
+    }
+
+    public function is_a($class_name)
+    {
+        return ($this instanceof $class_name) === true ? true : false;
     }
 
 }

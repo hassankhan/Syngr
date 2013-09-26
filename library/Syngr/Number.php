@@ -43,7 +43,7 @@ class Number extends Object {
      * and higher boundaries for the random value can be passed as parameters
      * @param  integer $min Lower boundary
      * @param  integer $max Higher boundary
-     * @return Number
+     * @return \Syngr\Number
      */
     public static function random($min = 0, $max = null)
     {
@@ -57,21 +57,38 @@ class Number extends Object {
         return new Number($number);
     }
 
+    /**
+     * Returns absolute of current value
+     * @return \Syngr\Number
+     */
     public function absolute()
     {
         return new Number(abs($this->content));
     }
 
+    /**
+     * Returns rounded-up current value
+     * @return \Syngr\Number
+     */
     public function ceiling()
     {
         return new Number(ceil((double) $this->content));
     }
 
+    /**
+     * Returns rounded-down current value
+     * @return \Syngr\Number
+     */
     public function floor()
     {
         return new Number(floor((double) $this->content));
     }
 
+    /**
+     * Returns current value rounded to a specified number of decimal places
+     * @param  integer $precision Number of decimal places
+     * @return \Syngr\Number
+     */
     public function round($precision = 0)
     {
         return new Number(round((double) $this->content, $precision));

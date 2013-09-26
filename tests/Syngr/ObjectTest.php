@@ -17,7 +17,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Object();
+        $this->object = new Object(array(0));
     }
 
     /**
@@ -26,6 +26,14 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
      */
     protected function tearDown()
     {
+    }
+
+    /**
+     * @covers Syngr\Object::is_a()
+     */
+    public function testIs_a()
+    {
+        $this->assertTrue($this->object->is_a('Syngr\Object'));
     }
 
 }
