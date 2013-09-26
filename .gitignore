@@ -1,0 +1,8 @@
+# Numerous always-ignore extensions
+*.diff
+*.lock
+*.err
+*.orig
+*.log
+*.zip
+*~

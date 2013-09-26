@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Syngr\Number | </title>
+                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../classes.html">Classes</a></li>
+                            <li><a href="../namespaces.html">Namespaces</a></li>
+                        <li><a href="../interfaces.html">Interfaces</a></li>
+            <li><a href="../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href="../Syngr.html">Syngr</a>\Number</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Number</strong>        extends <a href="../Syngr/Object.html"><abbr title="Syngr\Object">Object</abbr></a></p>
+
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>TRIG_ARC</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TRIG_HYPERBOLIC</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TRIG_INVERSE_HYPERBOLIC</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $number)
+                    <p>Constructor function for string object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Overrides __toString()</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_value">value</a>()
+                    <p>Returns raw value of Number</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_random">random</a>(integer $min, integer $max = null)
+                    <p>Returns a random number, can also generate a random number between an upper and lower boundary</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_absolute">absolute</a>()
+                    <p>Returns absolute value of an integer/double</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_ceiling">ceiling</a>()
+                    <p>Returns rounded-up value of number</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_floor">floor</a>()
+                    <p>Returns rounded-down value of number</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_round">round</a>(integer $precision)
+                    <p>Rounds a decimal value to specified amount of decimal places</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_max">max</a>(array $values)
+                    <p>Returns highest value in array</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_min">min</a>(array $values)
+                    <p>Returns lowest value in array</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_sqrt">sqrt</a>()
+                    <p>Returns square root of number</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_exp">exp</a>($power)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_log">log</a>($base = 10)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_pow">pow</a>($exponent = 1)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_cos">cos</a>($flags = array())
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_sin">sin</a>($flags = array())
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_tan">tan</a>($flags = array())
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_is_finite">is_finite</a>()
+                    <p>Checks to see whether vslue is finite</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_is_infinite">is_infinite</a>()
+                    <p>Checks to see whether value is infinite</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_is_nan">is_nan</a>()
+                    <p>Checks to see if value is Not-A-Number (NAN)</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 22</div>
+        <code>            public            
+    <strong>__construct</strong>(string $number)</code>
+    </h3>
+    <div class="details">
+        <p>Constructor function for string object</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$number</td>
+                <td><ul>
+<li>Textual data as represented by string</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">at line 31</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Overrides __toString()</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td><ul>
+<li>String representation of data</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_value">
+        <div class="location">at line 40</div>
+        <code>            public            mixed
+    <strong>value</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns raw value of Number</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_random">
+        <div class="location">at line 52</div>
+        <code>        static    public            <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+    <strong>random</strong>(integer $min, integer $max = null)</code>
+    </h3>
+    <div class="details">
+        <p>Returns a random number, can also generate a random number between an upper and lower boundary</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$min</td>
+                <td><ul>
+<li>Lower boundary for random number generation</li>
+</ul>
+</td>
+            </tr>
+                    <tr>
+                <td>integer</td>
+                <td>$max</td>
+                <td><ul>
+<li>Upper boundary for random number generation</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_absolute">
+        <div class="location">at line 68</div>
+        <code>            public            <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+    <strong>absolute</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns absolute value of an integer/double</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_ceiling">
+        <div class="location">at line 77</div>
+        <code>            public            <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+    <strong>ceiling</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns rounded-up value of number</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_floor">
+        <div class="location">at line 86</div>
+        <code>            public            <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+    <strong>floor</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns rounded-down value of number</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_round">
+        <div class="location">at line 96</div>
+        <code>            public            <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+    <strong>round</strong>(integer $precision)</code>
+    </h3>
+    <div class="details">
+        <p>Rounds a decimal value to specified amount of decimal places</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$precision</td>
+                <td><ul>
+<li>The number of decimal places to round value down to</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_max">
+        <div class="location">at line 106</div>
+        <code>            public            <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+    <strong>max</strong>(array $values)</code>
+    </h3>
+    <div class="details">
+        <p>Returns highest value in array</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$values</td>
+                <td><ul>
+<li>Array containing values to compare</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_min">
+        <div class="location">at line 116</div>
+        <code>            public            <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+    <strong>min</strong>(array $values)</code>
+    </h3>
+    <div class="details">
+        <p>Returns lowest value in array</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$values</td>
+                <td><ul>
+<li>Array containing values to compare</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_sqrt">
+        <div class="location">at line 125</div>
+        <code>            public            <a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a>
+    <strong>sqrt</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns square root of number</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../Syngr/Number.html"><abbr title="Syngr\Number">Number</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_exp">
+        <div class="location">at line 130</div>
+        <code>            public            
+    <strong>exp</strong>($power)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$power</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_log">
+        <div class="location">at line 135</div>
+        <code>            public            
+    <strong>log</strong>($base = 10)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$base</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_pow">
+        <div class="location">at line 150</div>
+        <code>            public            
+    <strong>pow</strong>($exponent = 1)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$exponent</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_cos">
+        <div class="location">at line 155</div>
+        <code>            public            
+    <strong>cos</strong>($flags = array())</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$flags</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_sin">
+        <div class="location">at line 173</div>
+        <code>            public            
+    <strong>sin</strong>($flags = array())</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$flags</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_tan">
+        <div class="location">at line 191</div>
+        <code>            public            
+    <strong>tan</strong>($flags = array())</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$flags</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_is_finite">
+        <div class="location">at line 213</div>
+        <code>            public            boolean
+    <strong>is_finite</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Checks to see whether vslue is finite</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td><ul>
+<li>True if value is, otherwise false</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_is_infinite">
+        <div class="location">at line 222</div>
+        <code>            public            boolean
+    <strong>is_infinite</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Checks to see whether value is infinite</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td><ul>
+<li>True if value is, otherwise false</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_is_nan">
+        <div class="location">at line 231</div>
+        <code>            public            boolean
+    <strong>is_nan</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Checks to see if value is Not-A-Number (NAN)</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td><ul>
+<li>True if value is, otherwise false</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

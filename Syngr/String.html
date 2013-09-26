@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Syngr\String | </title>
+                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../classes.html">Classes</a></li>
+                            <li><a href="../namespaces.html">Namespaces</a></li>
+                        <li><a href="../interfaces.html">Interfaces</a></li>
+            <li><a href="../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href="../Syngr.html">Syngr</a>\String</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>String</strong>        extends <a href="../Syngr/Object.html"><abbr title="Syngr\Object">Object</abbr></a></p>
+
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>CASE_INSENSITIVE</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>CASE_SENSITIVE</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>ORDER_NATURAL</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>ORDER_NORMAL</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>REGEX_MATCH_ALL</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>REGEX_RETURN</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>STRING_LEFT</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>STRING_RIGHT</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>STRING_BOTH</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $string = &#039;&#039;)
+                    <p>Constructor function for string object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Overrides __toString()</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_length">length</a>()
+                    <p>Gets length of string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_join">join</a>($delimiter = &#039;&#039;, $data)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_split">split</a>($splitter)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_match">match</a>($match_string, $flags = array())
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_utf8_encode">utf8_encode</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_utf8_decode">utf8_decode</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_hash">hash</a>(string $algorithm = &#039;MD5&#039;)
+                    <p>Returns a hash of the current string in the specified algorithm</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_html_decode">html_decode</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_html_encode">html_encode</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    String
+                </td>
+                <td class="last">
+                    <a href="#method_substring">substring</a>(int $start, int $length = null)
+                    <p>Returns portion of the string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_trim">trim</a>($delimiter = &#039; &#039;, $flags = array())
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    String
+                </td>
+                <td class="last">
+                    <a href="#method_uppercase">uppercase</a>()
+                    <p>Switches all characters in string into uppercase</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    String
+                </td>
+                <td class="last">
+                    <a href="#method_lowercase">lowercase</a>()
+                    <p>Switches all characters in string into lowercase</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_pad">pad</a>($length, $delimiter = &#039; &#039;, $flags = array())
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    String
+                </td>
+                <td class="last">
+                    <a href="#method_reverse">reverse</a>()
+                    <p>Reverses the order of characters in a string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_replace">replace</a>($search, $replace, $flags = array())
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_is_regex">is_regex</a>(string $regex)
+                    <p>Crude method to check for valid regex</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 40</div>
+        <code>            public            
+    <strong>__construct</strong>(string $string = &#039;&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Constructor function for string object</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$string</td>
+                <td><ul>
+<li>Textual data as represented by string</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">at line 51</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Overrides __toString()</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td><ul>
+<li>String representation of data</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_length">
+        <div class="location">at line 60</div>
+        <code>            public            int
+    <strong>length</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Gets length of string</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td><ul>
+<li>The length of the string</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_join">
+        <div class="location">at line 69</div>
+        <code>            public            
+    <strong>join</strong>($delimiter = &#039;&#039;, $data)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$delimiter</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$data</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_split">
+        <div class="location">at line 75</div>
+        <code>            public            
+    <strong>split</strong>($splitter)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$splitter</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_match">
+        <div class="location">at line 90</div>
+        <code>            public            
+    <strong>match</strong>($match_string, $flags = array())</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$match_string</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$flags</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_utf8_encode">
+        <div class="location">at line 140</div>
+        <code>            public            
+    <strong>utf8_encode</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_utf8_decode">
+        <div class="location">at line 145</div>
+        <code>            public            
+    <strong>utf8_decode</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hash">
+        <div class="location">at line 155</div>
+        <code>            public            string
+    <strong>hash</strong>(string $algorithm = &#039;MD5&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Returns a hash of the current string in the specified algorithm</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$algorithm</td>
+                <td><ul>
+<li>By default, is set to 'MD5'.</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td><ul>
+<li>The result of the hashing function</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_html_decode">
+        <div class="location">at line 160</div>
+        <code>            public            
+    <strong>html_decode</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_html_encode">
+        <div class="location">at line 165</div>
+        <code>            public            
+    <strong>html_encode</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_substring">
+        <div class="location">at line 176</div>
+        <code>            public            String
+    <strong>substring</strong>(int $start, int $length = null)</code>
+    </h3>
+    <div class="details">
+        <p>Returns portion of the string</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$start</td>
+                <td><ul>
+<li>Starting index of substring</li>
+</ul>
+</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$length</td>
+                <td><ul>
+<li>Length of substring</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>String</td>
+            <td><ul>
+<li>Returns current instance for method chaining</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_trim">
+        <div class="location">at line 183</div>
+        <code>            public            
+    <strong>trim</strong>($delimiter = &#039; &#039;, $flags = array())</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$delimiter</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$flags</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_uppercase">
+        <div class="location">at line 216</div>
+        <code>            public            String
+    <strong>uppercase</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Switches all characters in string into uppercase</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>String</td>
+            <td><ul>
+<li>Returns current instance for method chaining</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_lowercase">
+        <div class="location">at line 225</div>
+        <code>            public            String
+    <strong>lowercase</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Switches all characters in string into lowercase</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>String</td>
+            <td><ul>
+<li>Returns current instance for method chaining</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_pad">
+        <div class="location">at line 230</div>
+        <code>            public            
+    <strong>pad</strong>($length, $delimiter = &#039; &#039;, $flags = array())</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$length</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$delimiter</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$flags</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_reverse">
+        <div class="location">at line 263</div>
+        <code>            public            String
+    <strong>reverse</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Reverses the order of characters in a string</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>String</td>
+            <td><ul>
+<li>Returns current instance for method chaining</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_replace">
+        <div class="location">at line 276</div>
+        <code>            public            
+    <strong>replace</strong>($search, $replace, $flags = array())</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$search</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$replace</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$flags</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_is_regex">
+        <div class="location">at line 298</div>
+        <code>            public            boolean
+    <strong>is_regex</strong>(string $regex)</code>
+    </h3>
+    <div class="details">
+        <p>Crude method to check for valid regex</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$regex</td>
+                <td><ul>
+<li>The string to be validated as regex</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td><ul>
+<li>Returns true if valid regex, otherwise false</li>
+</ul>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
