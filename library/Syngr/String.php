@@ -2,6 +2,9 @@
 /**
  * String Class
  *
+ * This really ought to be updated to use mb_()-style methods,
+ * would bake UTF-8 support in like it ain't no thang.
+ *
  * @author Hassan Khan <contact@hassankhan.me>
  */
 namespace Syngr;
@@ -289,14 +292,14 @@ class String extends Object {
     }
 
     /**
-     * Crude method to check for valid regex
+     * Validates regular expressions with different (mostly-used) delimiters
+     * and afterwards applies a hook to check if its valid
      * @param  string  $regex - The string to be validated as regex
      * @return boolean        - Returns true if valid regex, otherwise false
+     * @author AlexanderC <self@alexanderc.me>
      */
     public function is_regex($regex)
     {
-        // validate regexp with different(mostly used) delimiters
-        // and after apply a hook to check if it is valid
         return 1 === preg_match("/^(\/|#|~|%|@|!).+(\/|#|~|%|@|!)(i|m|s|x|u|j)*$/ui", trim($regex))
             && false !== @preg_match($regex, '');
     }

@@ -40,7 +40,7 @@ class Number extends Object {
 
     public function absolute()
     {
-        return new Number(abs((int) $this->getContent()));
+        return new Number(abs($this->getContent()));
     }
 
     public function ceiling()
