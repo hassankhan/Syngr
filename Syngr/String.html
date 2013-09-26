@@ -128,6 +128,56 @@
             </tr>
                     <tr>
                 <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_getFields">getFields</a>()
+                    <p>Get fields</p>
+                </td>
+                <td><small>from&nbsp;<a href="../Syngr/Object.html#method_getFields"><abbr title="Syngr\Object">Object</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Syngr\$this">$this</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setFields">setFields</a>(array $fields)
+                    <p>Set fields</p>
+                </td>
+                <td><small>from&nbsp;<a href="../Syngr/Object.html#method_setFields"><abbr title="Syngr\Object">Object</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Syngr\field">field</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method___call">__call</a>(string $method, array $arguments)
+                    <p>Create dynamic functions</p>
+                </td>
+                <td><small>from&nbsp;<a href="../Syngr/Object.html#method___call"><abbr title="Syngr\Object">Object</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Syngr\option">option</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getOption">getOption</a>(string $key, array $options = null)
+                    <p>Get option - supports nested options separated by "."</p>
+                </td>
+                <td><small>from&nbsp;<a href="../Syngr/Object.html#method_getOption"><abbr title="Syngr\Object">Object</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Syngr\this">this</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setOption">setOption</a>(string $key, mixed $value, array $options = null)
+                    <p>Set option - supports nested options separated by "."</p>
+                </td>
+                <td><small>from&nbsp;<a href="../Syngr/Object.html#method_setOption"><abbr title="Syngr\Object">Object</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     string
                 </td>
                 <td class="last">
@@ -312,7 +362,7 @@
                 </td>
                 <td class="last">
                     <a href="#method_is_regex">is_regex</a>(string $regex)
-                    <p>Crude method to check for valid regex</p>
+                    <p>Validates regular expressions with different (mostly-used) delimiters and afterwards applies a hook to check if its valid</p>
                 </td>
                 <td></td>
             </tr>
@@ -322,7 +372,7 @@
         <h2>Details</h2>
 
                         <h3 id="method___construct">
-        <div class="location">at line 40</div>
+        <div class="location">at line 43</div>
         <code>            public            
     <strong>__construct</strong>(string $string = &#039;&#039;)</code>
     </h3>
@@ -350,8 +400,237 @@
                     </div>
     </div>
 
+                <h3 id="method_getFields">
+        <div class="location">in <a href="../Syngr/Object.html#method_getFields"><abbr title="Syngr\Object">Object</abbr></a> at line 32</div>
+        <code>            public            array
+    <strong>getFields</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get fields</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>of fields</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setFields">
+        <div class="location">in <a href="../Syngr/Object.html#method_setFields"><abbr title="Syngr\Object">Object</abbr></a> at line 43</div>
+        <code>            public            <abbr title="Syngr\$this">$this</abbr>
+    <strong>setFields</strong>(array $fields)</code>
+    </h3>
+    <div class="details">
+        <p>Set fields</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$fields</td>
+                <td><ul>
+<li>array of fields</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Syngr\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___call">
+        <div class="location">in <a href="../Syngr/Object.html#method___call"><abbr title="Syngr\Object">Object</abbr></a> at line 64</div>
+        <code>            public            <abbr title="Syngr\field">field</abbr>
+    <strong>__call</strong>(string $method, array $arguments)</code>
+    </h3>
+    <div class="details">
+        <p>Create dynamic functions</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$method</td>
+                <td><ul>
+<li>method name</li>
+</ul>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td><ul>
+<li>array of arguments that get is called by</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Syngr\field">field</abbr></td>
+            <td>value if get. $this if set.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
+                <td>if get option doesn't exist</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOption">
+        <div class="location">in <a href="../Syngr/Object.html#method_getOption"><abbr title="Syngr\Object">Object</abbr></a> at line 107</div>
+        <code>            public            <abbr title="Syngr\option">option</abbr>
+    <strong>getOption</strong>(string $key, array $options = null)</code>
+    </h3>
+    <div class="details">
+        <p>Get option - supports nested options separated by "."</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td><ul>
+<li>option key</li>
+</ul>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td><ul>
+<li>options array [optional]</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Syngr\option">option</abbr></td>
+            <td>value</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
+                <td>if key not found</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setOption">
+        <div class="location">in <a href="../Syngr/Object.html#method_setOption"><abbr title="Syngr\Object">Object</abbr></a> at line 141</div>
+        <code>            public            <abbr title="Syngr\this">this</abbr>
+    <strong>setOption</strong>(string $key, mixed $value, array $options = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set option - supports nested options separated by "."</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td><ul>
+<li>option key</li>
+</ul>
+</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td><ul>
+<li>option value</li>
+</ul>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td><ul>
+<li>options array [optional]</li>
+</ul>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Syngr\this">this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
                 <h3 id="method___toString">
-        <div class="location">at line 51</div>
+        <div class="location">at line 52</div>
         <code>            public            string
     <strong>__toString</strong>()</code>
     </h3>
@@ -379,7 +658,7 @@
     </div>
 
                 <h3 id="method_length">
-        <div class="location">at line 60</div>
+        <div class="location">at line 61</div>
         <code>            public            int
     <strong>length</strong>()</code>
     </h3>
@@ -407,7 +686,7 @@
     </div>
 
                 <h3 id="method_join">
-        <div class="location">at line 69</div>
+        <div class="location">at line 70</div>
         <code>            public            
     <strong>join</strong>($delimiter = &#039;&#039;, $data)</code>
     </h3>
@@ -441,7 +720,7 @@
     </div>
 
                 <h3 id="method_split">
-        <div class="location">at line 75</div>
+        <div class="location">at line 76</div>
         <code>            public            
     <strong>split</strong>($splitter)</code>
     </h3>
@@ -469,7 +748,7 @@
     </div>
 
                 <h3 id="method_match">
-        <div class="location">at line 90</div>
+        <div class="location">at line 91</div>
         <code>            public            
     <strong>match</strong>($match_string, $flags = array())</code>
     </h3>
@@ -503,7 +782,7 @@
     </div>
 
                 <h3 id="method_utf8_encode">
-        <div class="location">at line 140</div>
+        <div class="location">at line 141</div>
         <code>            public            
     <strong>utf8_encode</strong>()</code>
     </h3>
@@ -520,7 +799,7 @@
     </div>
 
                 <h3 id="method_utf8_decode">
-        <div class="location">at line 145</div>
+        <div class="location">at line 146</div>
         <code>            public            
     <strong>utf8_decode</strong>()</code>
     </h3>
@@ -537,7 +816,7 @@
     </div>
 
                 <h3 id="method_hash">
-        <div class="location">at line 155</div>
+        <div class="location">at line 156</div>
         <code>            public            string
     <strong>hash</strong>(string $algorithm = &#039;MD5&#039;)</code>
     </h3>
@@ -578,7 +857,7 @@
     </div>
 
                 <h3 id="method_html_decode">
-        <div class="location">at line 160</div>
+        <div class="location">at line 161</div>
         <code>            public            
     <strong>html_decode</strong>()</code>
     </h3>
@@ -595,7 +874,7 @@
     </div>
 
                 <h3 id="method_html_encode">
-        <div class="location">at line 165</div>
+        <div class="location">at line 166</div>
         <code>            public            
     <strong>html_encode</strong>()</code>
     </h3>
@@ -612,7 +891,7 @@
     </div>
 
                 <h3 id="method_substring">
-        <div class="location">at line 176</div>
+        <div class="location">at line 177</div>
         <code>            public            String
     <strong>substring</strong>(int $start, int $length = null)</code>
     </h3>
@@ -661,7 +940,7 @@
     </div>
 
                 <h3 id="method_trim">
-        <div class="location">at line 183</div>
+        <div class="location">at line 184</div>
         <code>            public            
     <strong>trim</strong>($delimiter = &#039; &#039;, $flags = array())</code>
     </h3>
@@ -695,7 +974,7 @@
     </div>
 
                 <h3 id="method_uppercase">
-        <div class="location">at line 216</div>
+        <div class="location">at line 217</div>
         <code>            public            String
     <strong>uppercase</strong>()</code>
     </h3>
@@ -723,7 +1002,7 @@
     </div>
 
                 <h3 id="method_lowercase">
-        <div class="location">at line 225</div>
+        <div class="location">at line 226</div>
         <code>            public            String
     <strong>lowercase</strong>()</code>
     </h3>
@@ -751,7 +1030,7 @@
     </div>
 
                 <h3 id="method_pad">
-        <div class="location">at line 230</div>
+        <div class="location">at line 231</div>
         <code>            public            
     <strong>pad</strong>($length, $delimiter = &#039; &#039;, $flags = array())</code>
     </h3>
@@ -791,7 +1070,7 @@
     </div>
 
                 <h3 id="method_reverse">
-        <div class="location">at line 263</div>
+        <div class="location">at line 264</div>
         <code>            public            String
     <strong>reverse</strong>()</code>
     </h3>
@@ -819,7 +1098,7 @@
     </div>
 
                 <h3 id="method_replace">
-        <div class="location">at line 276</div>
+        <div class="location">at line 277</div>
         <code>            public            
     <strong>replace</strong>($search, $replace, $flags = array())</code>
     </h3>
@@ -859,12 +1138,12 @@
     </div>
 
                 <h3 id="method_is_regex">
-        <div class="location">at line 298</div>
+        <div class="location">at line 301</div>
         <code>            public            boolean
     <strong>is_regex</strong>(string $regex)</code>
     </h3>
     <div class="details">
-        <p>Crude method to check for valid regex</p>
+        <p>Validates regular expressions with different (mostly-used) delimiters and afterwards applies a hook to check if its valid</p>
         <p>
 </p>
         <div class="tags">
