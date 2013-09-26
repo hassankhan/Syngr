@@ -233,9 +233,9 @@ class String extends Object {
             $salt = substr($salt, 0, $required_salt_len);
             $hash = $hash_format . $salt;
             $string = crypt($string, $hash);
-
-            return new String($string);
         }
+
+        return new String($string);
     }
 
     public function html_decode()
