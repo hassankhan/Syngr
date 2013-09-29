@@ -168,32 +168,24 @@ class String extends Object {
     public function bcrypt($cost = 13) {
         $string = $this->content;
 
+        if ($cost < 4 || $cost > 31) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'password_hash(): Invalid bcrypt cost parameter specified: %d',
+                    $cost
+                ),
+                E_USER_WARNING
+            );
+        }
+
         if (function_exists('password_hash')) {
             $string = password_hash(
                 $string,
                 PASSWORD_BCRYPT,
                 array('cost' => $cost)
             );
-
         }
         else {
-            if ($cost < 4 || $cost > 31) {
-                throw new \InvalidArgumentException(
-                    sprintf(
-                        'password_hash(): Invalid bcrypt cost parameter specified: %d',
-                        $cost
-                    ),
-                    E_USER_WARNING
-                );
-                // trigger_error(
-                //     sprintf(
-                //         'password_hash(): Invalid bcrypt cost parameter specified: %d',
-                //         $cost
-                //     ),
-                //     E_USER_WARNING
-                // );
-                // return null;
-            }
             // The length of salt to generate
             $raw_salt_len = 16;
             // The length required in the final serialization
