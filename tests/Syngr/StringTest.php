@@ -242,22 +242,6 @@ class StringTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Syngr\String::bcrypt()
-     */
-    public function testBcrypt()
-    {
-        if (!function_exists('password_hash')) {
-            $this->markTestSkipped(
-                'The password_hash() function is not available'
-            );
-        }
-        else {
-            $hash = $this->object->bcrypt();
-            $this->assertEquals($hash, crypt('foobar', $hash));
-        }
-    }
-
-    /**
      * @covers Syngr\String::hash()
      */
     public function testHashWithSha1()
@@ -266,6 +250,48 @@ class StringTest extends \PHPUnit_Framework_TestCase
             '8843d7f92416211de9ebb963ff4ce28125932878',
             $this->object->hash('sha1')
         );
+    }
+
+    /**
+     * @covers Syngr\String::bcrypt()
+     * @requires PHP 5.5
+     */
+    public function testBcryptUsingPasswordHash()
+    {
+        $hash = $this->object->bcrypt();
+        $this->assertEquals($hash, crypt('foobar', $hash));
+    }
+
+    /**
+     * @covers Syngr\String::bcrypt()
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage password_hash(): Invalid bcrypt cost parameter specified: 1
+     */
+    public function testBcryptUsingInvalidCost()
+    {
+        $hash = $this->object->bcrypt(1);
+        // $this->assertEquals($hash, crypt('foobar', $hash));
+    }
+
+    /**
+     * @covers Syngr\String::bcrypt()
+     * @requires function mcrypt_create_iv
+     */
+    public function testBcryptUsingMcryptCreateIv()
+    {
+        $hash = $this->object->bcrypt();
+        $this->assertEquals($hash, crypt('foobar', $hash));
+    }
+
+    /**
+     * @covers Syngr\String::bcrypt()
+     * @requires function openssl_random_pseudo_bytes
+     */
+    public function testBcryptUsingOpenSSLRandomPseudoBytes()
+    {
+        define('PHALANGER', 'haha');
+        $hash = $this->object->bcrypt();
+        $this->assertEquals($hash, crypt('foobar', $hash));
     }
 
     /**

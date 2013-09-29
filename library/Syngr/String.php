@@ -159,10 +159,11 @@ class String extends Object {
     }
 
     /**
-     * Returns a blowfish encrypted string. This is a adaptation of
+     * Returns a blowfish-formatted string. This is a adaptation of
      * ircmaxwell's password_compat library
      * @param integer $cost     - The cost of the operation
      * @return \Syngr\String
+     * @author jordan-ed
      */
     public function bcrypt($cost = 13) {
         $string = $this->content;
@@ -177,14 +178,21 @@ class String extends Object {
         }
         else {
             if ($cost < 4 || $cost > 31) {
-                trigger_error(
+                throw new \InvalidArgumentException(
                     sprintf(
                         'password_hash(): Invalid bcrypt cost parameter specified: %d',
                         $cost
                     ),
                     E_USER_WARNING
                 );
-                return null;
+                // trigger_error(
+                //     sprintf(
+                //         'password_hash(): Invalid bcrypt cost parameter specified: %d',
+                //         $cost
+                //     ),
+                //     E_USER_WARNING
+                // );
+                // return null;
             }
             // The length of salt to generate
             $raw_salt_len = 16;
