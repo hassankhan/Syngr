@@ -21,12 +21,16 @@ The idea is to make programming in PHP simpler, and force it to behave in a more
     split()
 
 #### Comparison
-    compare() // Change to match() after implementing preg_match()
+    match()
 
 #### Encoding
 
 #### Hashing
-    hash()
+    hash($algorithm_name)
+        where $algorithm_name can be anything from [here](http://www.php.net/manual/en/function.hash.php).
+
+    bcrypt($cost)
+        where $cost is an integer between 4 and 31
 
 #### HTML
 
@@ -35,7 +39,8 @@ The idea is to make programming in PHP simpler, and force it to behave in a more
 #### String Formatting
 
 #### Substring
-    substring()
+    substring($start, $length)
+        where $start is the index to start the substring and $length is the length of the substring.
 
 #### Text Formatting
     trim()
@@ -119,9 +124,8 @@ _Examples of common tasks_
 - _Internal git workflow_
 - _Pull request guidelines_
 - _Tracker project_
-- _Google group_
 - _irc channel_
-- _"Please open github issues"_
+- Please open issues on the repo tracker for any incorrect behaviour, or better yet, make a pull request with a failing test case :smile:
 
 ## License
 This project is licensed under the MIT License.
